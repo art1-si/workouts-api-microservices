@@ -9,15 +9,20 @@ import java.util.List;
 @Service
 public class ExerciseService {
 
-    private  final ExerciseRepository exerciseRepository;
+    private final ExerciseRepository exerciseRepository;
 
 
-    public ExerciseService(ExerciseRepository exerciseRepository){
+    public ExerciseService(ExerciseRepository exerciseRepository) {
         this.exerciseRepository = exerciseRepository;
     }
 
-    public List<Exercise> getExercises(){
-        return exerciseRepository.getExercises();
+    public List<Exercise> getExercises(int userId) {
+        return exerciseRepository.getExercises(userId);
     }
 
+
+    public Exercise createExercise(int userId, String exerciseName, String exerciseType,
+            String description) {
+        return exerciseRepository.createExercise(userId, exerciseName, exerciseType, description);
+    }
 }
